@@ -44,8 +44,8 @@ submit = st.button("Predict the Booking status here")
 # Load the necessary model and pipeline
 # syntax: file_name = load_model(r"pass the path of model")
 # file_name = joblib.load(r"pass the path of pipeline")
-model = load_model(r"/workspaces/Deployment-of-Booking-Status-Prediction-Model/BookingStatusModel.keras")
-pipeline = joblib.load(r"/workspaces/Deployment-of-Booking-Status-Prediction-Model/preprocessor.joblib")
+model = load_model(r"BookingStatusModel.keras")
+pipeline = joblib.load(r"preprocessor.joblib")
 
 # the logic to be executed when predict button is clicked(submit becomes True)
 if submit: # if submit==True
