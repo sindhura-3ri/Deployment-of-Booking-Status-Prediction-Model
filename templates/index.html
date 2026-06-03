@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Booking Approval Status Prediction</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet'>
+</head>
+
+<body>
+ <div class="login">
+    <h1>Booking Approval Status Prediction Model</h1>
+
+    <!-- Form -->
+    <form action="{{ url_for('predict') }}" method="post">
+
+        <!-- ========== NUMBER INPUTS ========== -->
+
+        <label for="Number of Adults">Number of Adults:</label>
+        <input type="number" name="Number of Adults" placeholder="Number of Adults" min="1" step="1" required>
+
+        <label for="Number of Children">Number of Children:</label>
+        <input type="number" name="Number of Children" placeholder="Number of Children" min="0" step="1" required>
+
+        <label for="Number of weekend nights">Number of weekend nights (years):</label>
+        <input type="number" name="Number of weekend nights" placeholder="Enter Number of weekend nights" min="0" step="1" required>
+
+        <label for="Number of Weekday nights">Number of Weekday nights:</label>
+        <input type="number" name="Number of Weekday nights" placeholder="Enter Number of Weekday nights" min="0" step="1" required>
+
+        <label for="Type of meal plan">Type of meal plan (%):</label>
+        <input type="number" name="Type of meal plan" placeholder="Enter Type of meal plan" min="1" required>
+
+        <label for="required_car_parking_space">required_car_parking_space:</label>
+        <input type="number" name="required_car_parking_space" placeholder="Enter required_car_parking_space" step="1" required>
+
+        <label for="Room type">Room type (years):</label>
+        <input type="number" name="Room type" placeholder="Enter Room type" step="1" required>
+
+	 <label for="Lead Time">Lead Time (years):</label>
+        <input type="number" name="Lead Time" placeholder="Enter Lead Time" step="1" required>
+
+	 <label for="Arrival Year">Arrival Year (years):</label>
+        <input type="number" name="Arrival Year" placeholder="Enter Arrival Year" step="1" required>
+
+	<label for="Arrival Month">Arrival Month (years):</label>
+        <input type="number" name="Arrival Month" placeholder="Enter Arrival Month" step="1" required>
+
+	<label for="Arrival Day">Arrival Day (years):</label>
+        <input type="number" name="Arrival Day" placeholder="Enter Arrival Day" step="1" required>
+
+	<label for="Market Segment Type">Market Segment Type (years):</label>
+        <input type="number" name="Market Segment Type" placeholder="Market Segment Type" step="1" required>
+
+	<label for="Repeated Guest">Repeated Guest(years):</label>
+        <input type="number" name="Repeated Guest" placeholder="Enter Repeated Guest" step="1" required>
+
+	<label for="Total Previous cancellations">Total Previous cancellations (years):</label>
+        <input type="number" name="Total Previous cancellations" placeholder="Total Previous cancellations" step="1" required>
+
+	<label for="Total Previous non cancellations">Total Previous non cancellations (years):</label>
+        <input type="number" name="Total Previous non cancellations" placeholder="Total Previous non cancellations" step="1" required>
+
+	<label for="Total special requests">Total special requests (years):</label>
+        <input type="number" name="Total special requests" placeholder="Total special requests" step="1" required>
+
+	<label for="Average price per room">Average price per room (years):</label>
+        <input type="number" name="Average price per room" placeholder="Average price per room" step="1" required>
+
+
+                <br><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+    </form>
+
+    <br>
+
+ </div>
+</body>
+</html>
+
