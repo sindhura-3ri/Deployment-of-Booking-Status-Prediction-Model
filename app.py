@@ -18,7 +18,7 @@ st.subheader("By Sindhura Kuntamukkula")
 #        'room_type_reserved', 'lead_time', 'arrival_year', 'arrival_month',
 #        'arrival_date', 'market_segment_type', 'repeated_guest',
 #        'no_of_previous_cancellations', 'no_of_previous_bookings_not_canceled',
-#        'avg_price_per_room', 'no_of_special_requests'
+#        'avg_price_per_room', 'no_of_special_requests'    
 
 adult_count = st.number_input(label="Number of Adults",min_value=1,max_value=15,step=1)
 children_count = st.number_input(label="Number of children",min_value=1,max_value=15,step=1)
