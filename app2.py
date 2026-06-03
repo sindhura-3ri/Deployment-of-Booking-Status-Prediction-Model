@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request
 import joblib
 from keras.models import load_model
+import pandas as pd
 
 # create flask app
 flask_app = Flask(__name__)
@@ -15,7 +16,7 @@ pipeline = joblib.load(r"preprocessor.joblib")
 def Home(): # this is the default home page
     return render_template("index.html")
 
-@flask_app.route("/predict",methods="POST") # WHAT SHOULD HAPPEN WHEN USER CLICKS ON PREDICT
+@flask_app.route("/predict",methods=["POST"]) # WHAT SHOULD HAPPEN WHEN USER CLICKS ON PREDICT
 def predict():
     # convert numerical features into float to fetch the data as forms consider data in string format
     no_of_adults = float(request.form["Number of Adults"])
@@ -26,9 +27,9 @@ def predict():
     required_car_parking_space = float(request.form["required_car_parking_space"])
     Room_type= float(request.form["Room type"])
     Lead_Time=float(request.form["Lead Time"])
-    Arrival_Year = float(request.form["Arrival_Year"])
-    Arrival_Month = float(request.form["Arrival_Month"])
-    Arrival_Day = float(request.form["Arrival_Day"])
+    Arrival_Year = float(request.form["Arrival Year"])
+    Arrival_Month = float(request.form["Arrival Month"])
+    Arrival_Day = float(request.form["Arrival Day"])
     MarketSegmentType = float(request.form["Market Segment Type"])
     RepeatedGuest = float(request.form["Repeated Guest"])
     Total_Previous_cancellations = float(request.form["Total Previous cancellations"])
