@@ -7,7 +7,7 @@ from fastapi.templating import Jinja2Templates
 import uvicorn
 import os
 
-
+# Create FastAPI app
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
@@ -46,10 +46,13 @@ async def predict(request:Request,
         arrival_date, market_segment_type, repeated_guest,
         no_of_previous_cancellations, no_of_previous_bookings_not_canceled,
        avg_price_per_room, no_of_special_requests]
+    
+    # clean and scale the data
     xpre = pipeline.transform([x])
+    # predict the output
+    res = model.predict(xpre) # predictions of neural network models are in probabilities
 
-    res = model.predict(xpre)
-
+    # we finalise the prediction classes on basis of thresholds applied on probabilities
     if res[0][0]>0.5:
         res_op ='Approved'
     else:
@@ -68,3 +71,6 @@ async def predict(request:Request,
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     uvicorn.run("app3:app", host="0.0.0.0", port=port)
+
+# to run the app on local host: use below python command
+# python app3.py
